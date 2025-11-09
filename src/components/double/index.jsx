@@ -13,6 +13,9 @@ export default function Index({projects, reversed}) {
     const speed = 0.15;
     
     const manageMouseMove = (e) => {
+        // Disable animation on mobile and tablet (no mouse on touch devices)
+        if(window.innerWidth <= 1024) return;
+        
         const { clientX } = e;
         xPercent = (clientX / window.innerWidth) * 100;
         

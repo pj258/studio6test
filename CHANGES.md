@@ -71,3 +71,4 @@ Obrázky se budou automaticky prolínat s fade efektem!
 
 
 
+

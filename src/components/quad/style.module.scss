@@ -1,22 +1,14 @@
-.triple{
+.quad{
     display: flex;
     margin-top: 10vh;
-    height: 45vw;
 
     .imageContainer{
-      &:nth-of-type(1){
-        width: 50%;
-      }
-      &:nth-of-type(2){
-        width: 33.33%;
-      }
-      &:nth-of-type(3){
-        width: 16.67%;
-      }
+      width: 25%; // Výchozích 25% pro každou ze 4 dlaždic
       
       .stretchyWrapper{
-        padding-bottom: 66%;
+        padding-bottom: 100%; // Čtverec 1:1
         position: relative;
+        overflow: hidden; // Skryje přetékající části zvětšeného obrázku
 
         img{
           object-fit: cover;
@@ -43,9 +35,9 @@
       }
 
       p{
-        font-size: 1rem;
+        font-size: .85rem;
         margin: 0px;
-        color: rgb(187, 187, 187);
+        color: rgba(0, 0,0, 0.5);
         
         span.category {
           color: #B6483B;
@@ -64,43 +56,26 @@
       }
     }
 
-    // Tablet - 2+1 layout (2 images on top, 1 below at 50%)
+    // Tablet - 2x2 grid
     @media (max-width: 1024px) and (min-width: 769px) {
       flex-wrap: wrap;
-      height: auto;
-
+      
       .imageContainer{
-        // Use !important to prevent JS override and ensure wrap layout
-        &:nth-of-type(1){
-          width: 50% !important;
-        }
-        &:nth-of-type(2){
-          width: 50% !important;
-        }
-        &:nth-of-type(3){
-          width: 50% !important;
-          margin-top: 3vh;
-        }
-
-        .stretchyWrapper{
-          padding-bottom: 70%;
-        }
+        width: 50% !important; // 2 dlaždice v řadě
       }
     }
 
     // Mobile - stack all vertically
     @media (max-width: 768px) {
       flex-direction: column;
-      height: auto;
-
+      
       .imageContainer{
-        width: 100% !important;
-        margin-bottom: 5vh;
-
+        width: 100% !important; // Stack vertikálně
+        margin-bottom: 3vh;
+        
         .stretchyWrapper{
-          padding-bottom: 75%;
+          padding-bottom: 75%; // Mírně obdélníkový na mobile
         }
       }
     }
   }
-
